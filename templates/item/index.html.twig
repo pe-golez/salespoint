@@ -21,15 +21,16 @@
 		<table>
 			<tr>
 				<td>Item Number</td>
-				<td>10124</td>
+				<td>{{ item.getItemNumber() }}</td>
 			</tr>
 			<tr>
 				<td>Description</td>
-				<td>Pen</td>
+				<td>{{ item.getDescription() }}</td>
 			</tr>
 			<tr>
 				<td>Unit Price</td>
-				<td>PHP 12.00</td>
+				<td>PHP
+					{{ item.getUnitPrice() }}</td>
 			</tr>
 		</table>
 	</div>
