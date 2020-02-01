@@ -16,17 +16,20 @@ class ItemController extends AbstractController
     }
 
     /**
-     * @Route("/item", name="item")
+     * @Route("/item/{id}", name="item")
      */
-    public function index()
+    public function showItem($id)
     {
-        $item1 = new Item();
-        $item1->setItemNumber('xxx--xwfda');
-        $item1->setDescription('pen');
-        $item1->setUnitPrice(12.00);
+        $item = $this->itemRepository->findOneBy([
+            'id'    => $id
+        ]);
+
+        if ($item == null) {
+            die("Item not found");
+        }
 
         return $this->render('item/index.html.twig', [
-            'item'  => $item1
+            'item'  => $item
         ]);
     }
 
